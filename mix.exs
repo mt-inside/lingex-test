@@ -5,9 +5,16 @@ defmodule Foo.Mixfile do
     [app: :foo,
      version: "0.0.1",
      elixir: "~> 1.0",
-     deps: deps]
+     deps: deps,
+     lingex_opts: lingex_opts
+   ]
   end
 
+  def lingex_opts do
+    [ build_host: "build.erlangonxen.org:8080",
+      username: "test",
+      password: "test" ]
+  end
   # Configuration for the OTP application
   #
   # Type `mix help compile.app` for more information
@@ -25,6 +32,6 @@ defmodule Foo.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [ { :lingex, github: "maximk/lingex" } ]
   end
 end
